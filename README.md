@@ -1,8 +1,17 @@
-# KVP_Helper
-Simple utility library that allows you to store and use data locally using KVP
+A minimal utility for managing resource KVPs in FiveM using C#.  
+Avoids the default `0` problem by checking key existence before returning values.  
 
-This utility class solves the problem with the values defaulting to 0 and adds the ability to set default values to settings.
+## Features
 
-Usage:
-Settings.Get(key, defaultValue);
-Settings.Set(key, value);
+- ✅ `Get`/`Set` support for `string`, `int`, `float`, `bool`
+- ✅ Checks if key exists before returning value
+- ✅ Automatically sets default if missing
+
+## Usage
+
+```csharp
+int myValue = Settings.Get("my_key", 42);
+Settings.Set("my_key", 1337);
+
+bool isEnabled = Settings.Get("feature_toggle", false);
+Settings.Set("feature_toggle", true);
